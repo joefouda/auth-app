@@ -11,7 +11,10 @@ const userSchema = new mongoose.Schema({
         unique:true
     },
     password:String,
-    admin:Boolean
+    admin:{
+        type:Boolean,
+        default:false
+    }
 })
 
 module.exports = userSchema

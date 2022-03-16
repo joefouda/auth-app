@@ -14,9 +14,7 @@ const secretKey = 'mySecretKey'
 // sign up function expression
 const signUp = async (req, res, next) => {
 
-    //define instance to store signed up user data in the database
-    let signedUp = {...req.body, admin:false}
-    let user = new User(signedUp);  
+    let user = new User(req.body);  
     try {
         // hashing password with 10 saltrounds
         user.password = await bcrypt.hash(user.password, saltRounds)
